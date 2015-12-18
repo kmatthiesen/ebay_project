@@ -29,7 +29,7 @@
             Amount
           </td>
         </tr>
-        <tr ng-repeat="product in store.products" ng-click="tab.setTab($index)">
+        <tr ng-repeat="product in store.products" ng-click="tab.setTab({{$index}})">
           <td>
             {{product.name}}
           </td>
@@ -43,9 +43,10 @@
       </table>
     </div>
     <div class="col-md-4" id="extra-info">
-      <productTabs></productTabs>
+      <items></items>
 
     </div>
+
   </div>
 </body>
 </html>

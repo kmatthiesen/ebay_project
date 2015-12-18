@@ -1,5 +1,5 @@
 <div ng-repeat="product in store.products">
-  <div ng-class="{active:tab.isSet($index)}" ng-show="tab.isSet($index)">
+  <div ng-show="tab.isSet({{$index}})">
     {{product.description}}
   </div>
 </div>

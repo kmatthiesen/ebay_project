@@ -12,8 +12,9 @@ app.directive("productTabs", function() {
     restrict: "E",
 
     templateUrl: "descriptions.html",
+
     controller: function() {
-      this.tab = 1;
+      this.tab = null;
 
       this.isSet = function(checkTab) {
         return this.tab === checkTab;

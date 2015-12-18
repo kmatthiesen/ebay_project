@@ -1,13 +1,34 @@
 // Code goes here
 
 (function() {
-  var app = angular.module('ebay-store', ['store-directives']);
+  var app = angular.module('ebay-store', []);
 
 
 
   app.controller('StoreController', function() {
     this.products = items;
 
+  });
+
+  app.directive("items", function() {
+    return {
+      restrict: "E",
+
+      templateUrl: "descriptions.html",
+
+      controller: function() {
+        this.tab = 0;
+
+        this.isSet = function(checkTab) {
+          return this.tab === checkTab;
+        };
+
+        this.setTab = function(activeTab) {
+          this.tab = activeTab;
+        };
+      },
+      controllerAs: "tab"
+    };
   });
 
   var items = [{
