@@ -1,5 +1,29 @@
-<div class="info">
-  <div ng-repeat="product in store.products">
+<div ng-repeat="product in store.products">
+  <div ng-class="{active:tab.isSet($index)}" ng-show="tab.isSet($index)">
     {{product.description}}
   </div>
 </div>
+
+
+
+
+<!-- <section>
+  <!--  Tab Navigation  -->
+  <!-- <ul class="nav nav-pills">
+    <li ng-class="{ active:tab.isSet(1) }">
+      <a href="" ng-click="tab.setTab(1)">Description</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(2) }">
+      <a href="" ng-click="tab.setTab(2)">Specs</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(3) }">
+      <a href="" ng-click="tab.setTab(3)">Reviews</a>
+    </li>
+  </ul>
+  <!--  Description Tab's Content  -->
+  <!-- <descriptions ng-show="tab.isSet(1)"></descriptions>
+  <!--  Spec Tab's Content  -->
+  <!-- <specs ng-show="tab.isSet(2)"></specs>
+  <!--  Review Tab's Content  -->
+  <!-- <reviews ng-show="tab.isSet(3)">hi</reviews>
+</section> -->
