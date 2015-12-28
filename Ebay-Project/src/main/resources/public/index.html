@@ -9,9 +9,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="index.js"></script>
+  <!-- <script type="text/javascript" src="index.js"></script> -->
   <script type="text/javascript" src="app.js"></script>
-  <script type="text/javascript" src="descrip.js"></script>
+  <!-- <script type="text/javascript" src="descrip.js"></script> -->
 
 </head>
 <body ng-app="ebay-store">
@@ -29,7 +29,7 @@
             Amount
           </td>
         </tr>
-        <tr ng-repeat="product in store.products" ng-click="tab.setTab({{$index}})">
+        <tr ng-repeat="product in store.products" ng-click="store.setTab($index)">
           <td>
             {{product.name}}
           </td>
@@ -43,8 +43,11 @@
       </table>
     </div>
     <div class="col-md-4" id="extra-info">
-      <items></items>
-
+      <div ng-repeat="product in store.products">
+        <div ng-class="{active : store.checkTab($index)}" ng-show="store.isSet($index)">
+          {{product.description}}
+        </div>
+      </div>
     </div>
 
   </div>

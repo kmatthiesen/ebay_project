@@ -7,29 +7,19 @@
 
   app.controller('StoreController', function() {
     this.products = items;
+    this.tab = -1;
 
-  });
+    this.isSet = function(checkTab){
+      console.log(checkTab);
+      return this.tab == checkTab;
+    };
 
-  app.directive("items", function() {
-    return {
-      restrict: "E",
-
-      templateUrl: "descriptions.html",
-
-      controller: function() {
-        this.tab = 0;
-
-        this.isSet = function(checkTab) {
-          return this.tab === checkTab;
-        };
-
-        this.setTab = function(activeTab) {
-          this.tab = activeTab;
-        };
-      },
-      controllerAs: "tab"
+    this.setTab = function(activeTab) {
+      console.log(activeTab);
+      this.tab = activeTab;
     };
   });
+
 
   var items = [{
     name: 'Item one',
