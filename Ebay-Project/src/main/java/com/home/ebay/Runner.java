@@ -1,4 +1,4 @@
-package com.home.springboot;
+package com.home.ebay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

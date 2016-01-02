@@ -15,12 +15,12 @@
 
 </head>
 <body ng-app="ebay-store">
-  <div class="container" ng-controller="StoreController as store">
-    <div id="accordion" class="col-md-8">
+  <div class="container" ng-controller="StoreController as store" >
+    <div id="accordion" class="col-md-8" ng-click="store.applycrap()">
       <table class="table table-bordered table-hover">
         <tr id="table-header">
           <td>
-            Title
+            Serial Number
           </td>
           <td>
             Description
@@ -31,13 +31,13 @@
         </tr>
         <tr ng-repeat="product in store.products" ng-click="store.setTab($index)">
           <td>
-            {{product.name}}
+            {{product.serial_num}}
           </td>
           <td>
-            {{product.description}}
+            <!-- {{product.description}} -->
           </td>
           <td>
-            {{product.amount}}
+            <!-- {{product.amount}} -->
           </td>
         </tr>
       </table>
@@ -45,7 +45,7 @@
     <div class="col-md-4" id="extra-info">
       <div ng-repeat="product in store.products">
         <div ng-class="{active : store.checkTab($index)}" ng-show="store.isSet($index)">
-          {{product.description}}
+          {{product.fabric_name}}
         </div>
       </div>
     </div>

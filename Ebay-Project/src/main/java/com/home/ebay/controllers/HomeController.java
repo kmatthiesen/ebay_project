@@ -1,4 +1,4 @@
-package com.home.springboot.controllers;
+package com.home.ebay.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

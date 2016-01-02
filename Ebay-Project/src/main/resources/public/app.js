@@ -5,20 +5,33 @@
 
 
 
-  app.controller('StoreController', function() {
-    this.products = items;
+  app.controller('StoreController', ["$scope", "$http", function($scope, $http) {
+
+    $http.get('/fabrics').then(
+      function(response) {
+        $scope.$apply(function(){
+          $scope.products = response.data;
+        });
+      });
+
     this.tab = -1;
 
     this.isSet = function(checkTab){
-      console.log(checkTab);
       return this.tab == checkTab;
     };
 
     this.setTab = function(activeTab) {
-      console.log(activeTab);
       this.tab = activeTab;
     };
-  });
+
+    // this.applycrap = function(){
+    //   console.log(1);
+    // };
+
+
+
+
+  }]);
 
 
   var items = [{
