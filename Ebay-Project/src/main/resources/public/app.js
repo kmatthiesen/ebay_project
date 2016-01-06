@@ -5,13 +5,18 @@
 
 
 
-  app.controller('StoreController', ["$scope", "$http", function($scope, $http) {
+  app.controller('StoreController', function($scope, $http) {
 
-    $http.get('/fabrics').then(
-      function(response) {
-        $scope.$apply(function(){
-          $scope.products = response.data;
-        });
+    $scope.products = {};
+    console.log($scope.products);
+
+    $http.get('/fabrics')
+      .success(function(response) {
+          $scope.products = response;
+          console.log(response);
+        })
+      .error(function(error){
+        console.log("Error: " + error);
       });
 
     this.tab = -1;
@@ -24,14 +29,10 @@
       this.tab = activeTab;
     };
 
-    // this.applycrap = function(){
-    //   console.log(1);
-    // };
 
 
 
-
-  }]);
+  });
 
 
   var items = [{
