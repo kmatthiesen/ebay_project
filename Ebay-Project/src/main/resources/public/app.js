@@ -13,7 +13,7 @@
     $http.get('/fabrics')
       .success(function(response) {
           $scope.products = response;
-          console.log(response);
+          console.log($scope.products);
         })
       .error(function(error){
         console.log("Error: " + error);
@@ -35,28 +35,14 @@
   });
 
 
-  var items = [{
-    name: 'Item one',
-    description: "Words",
-    amount: 5,
-    id:1
+  var fabrics = [{
+    serial_num: 'TES-001',
+    fabric_name: "Test 1"
 
   }, {
-    name: 'Item 2',
-    description: "Words2",
-    amount: 4,
-    id:2
+    serial_num: 'TES-002',
+    fabric_name: "Test 2",
 
-  }, {
-    name: 'Item three',
-    description: "Words3",
-    amount: 12,
-    id:3
-  }, {
-    name: 'Item 4',
-    description: "Words4",
-    amount: 9001,
-    id:4
   }
   ];
 

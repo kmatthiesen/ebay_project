@@ -16,7 +16,7 @@
 </head>
 <body ng-app="ebay-store">
   <div class="container" ng-controller="StoreController as store" >
-    <div id="accordion" class="col-md-8" ng-click="store.applycrap()">
+    <div id="accordion" class="col-md-8">
       <table class="table table-bordered table-hover">
         <tr id="table-header">
           <td>
@@ -33,12 +33,12 @@
           <td>
             {{product.serial_num}}
           </td>
-          <td>
-            <!-- {{product.description}} -->
+          <!-- <td>
+            {{product.description}}
           </td>
           <td>
-            <!-- {{product.amount}} -->
-          </td>
+            {{product.amount}}
+          </td> -->
         </tr>
       </table>
     </div>
