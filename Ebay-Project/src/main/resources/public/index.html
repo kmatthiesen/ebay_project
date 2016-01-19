@@ -19,8 +19,8 @@
 <body ng-app="ebay-store">
   <div class="container" ng-controller="IndexController" >
     <div id="accordion" class="col-md-8">
-      <table class="table table-bordered table-hover">
-        <tr id="table-header">
+      <table class="table table-bordered table-hover table-striped">
+        <thead id="table-header">
           <td>
             Serial Number
           </td>
@@ -30,23 +30,25 @@
           <td>
             Amount
           </td>
-        </tr>
-        <tr ng-repeat="product in products" ng-click="setTab($index)">
-          <td>
-            {{product.serial_num}}
-          </td>
-          <!-- <td>
-            {{product.description}}
-          </td>
-          <td>
-            {{product.amount}}
-          </td> -->
-        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in products" ng-click="setTab($index)" ng-class='{clicked : isSet($index)}'>
+            <td>
+              {{product.serial_num}}
+            </td>
+            <td>
+              {{product.description}}
+            </td>
+            <td>
+              {{product.amount}}
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <div class="col-md-4" id="extra-info">
       <div ng-repeat="product in products">
-        <div ng-class="{active : checkTab($index)}" ng-show="isSet($index)" description>
+        <div ng-class="{active : isSet($index)}" ng-show="isSet($index)">
           <description></description>
         </div>
       </div>
