@@ -10,12 +10,14 @@
   <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <!-- <script type="text/javascript" src="index.js"></script> -->
-  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="/app/app.js"></script>
+  <script type="text/javascript" src="/controller/indexController.js"></script>
+  <script type="text/javascript" src="/directive/description.js"></script>
   <!-- <script type="text/javascript" src="descrip.js"></script> -->
 
 </head>
 <body ng-app="ebay-store">
-  <div class="container" ng-controller="StoreController as store" >
+  <div class="container" ng-controller="IndexController" >
     <div id="accordion" class="col-md-8">
       <table class="table table-bordered table-hover">
         <tr id="table-header">
@@ -44,8 +46,8 @@
     </div>
     <div class="col-md-4" id="extra-info">
       <div ng-repeat="product in products">
-        <div ng-class="{active : checkTab($index)}" ng-show="isSet($index)">
-          {{product.fabric_name}}
+        <div ng-class="{active : checkTab($index)}" ng-show="isSet($index)" description>
+          <description></description>
         </div>
       </div>
     </div>

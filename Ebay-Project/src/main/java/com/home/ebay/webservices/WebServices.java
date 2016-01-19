@@ -25,15 +25,5 @@ public class WebServices {
 	@RequestMapping(value = "/fabrics", method = RequestMethod.GET)
 	public List<Fabric> getAllFabric(){
 		return fabricDao.getAllFabric();
-//		List<Fabric> fabList = new ArrayList<Fabric>();
-//		Fabric fab1 = new Fabric();
-//		fab1.setSerial_num("TES-001");
-//		fab1.setFabric_name("Fabric 1");
-//		Fabric fab2 = new Fabric();
-//		fab2.setSerial_num("TES-002");
-//		fab2.setFabric_name("Fabric 2");
-//		fabList.add(fab2);
-//		fabList.add(fab1);
-//		return fabList;
 	}
 }
