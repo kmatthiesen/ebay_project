@@ -1,17 +1,18 @@
 // Code goes here
 
-(function() {
-  var app = angular.module('ebay-store', []);
+
+  angular.module('ebay-store', []);
 
 
 
-  app.controller('StoreController', function($scope, $http) {
+  angular.module('ebay-store').controller('StoreController', ['$scope', '$http', function($scope, $http) {
 
     $scope.products = {};
     console.log($scope.products);
 
     $http.get('/fabrics')
       .success(function(response) {
+          console.log(response);
           $scope.products = response;
           console.log($scope.products);
         })
@@ -19,20 +20,20 @@
         console.log("Error: " + error);
       });
 
-    this.tab = -1;
+    $scope.tab = -1;
 
-    this.isSet = function(checkTab){
-      return this.tab == checkTab;
+    $scope.isSet = function(checkTab){
+      return $scope.tab == checkTab;
     };
 
-    this.setTab = function(activeTab) {
-      this.tab = activeTab;
+    $scope.setTab = function(activeTab) {
+      $scope.tab = activeTab;
     };
 
 
 
 
-  });
+  }]);
 
 
   var fabrics = [{
@@ -45,5 +46,3 @@
 
   }
   ];
-
-})();
