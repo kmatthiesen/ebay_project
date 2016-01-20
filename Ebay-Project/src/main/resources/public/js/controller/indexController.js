@@ -1,8 +1,8 @@
 angular.module('ebay-store').controller('IndexController',
-		[ '$scope', 'getHttp', function($scope, getHttp) {
+		[ '$scope', 'httpFactory', function($scope, httpFactory) {
 
-			getHttp.get().then(function(response) {
-				$scope.products = response;
+			httpFactory.getAllFabrics().then(function(response) {
+				$scope.fabrics = response;
 			});
 
 			$scope.tab = -1;

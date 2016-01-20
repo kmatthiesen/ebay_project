@@ -1,30 +1,29 @@
 a {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }
-
 
 .fabric_name {
-  color: red;
+	color: red;
 }
 
-.table-striped > tbody > tr:nth-of-type(2n+1) {
-  background-color: #F1F1F1;
+.table-striped>tbody>tr:nth-of-type(2n+1) {
+	background-color: #F1F1F1;
 }
 
-.table-striped > tbody > tr:nth-of-type(2n) {
-
+.table-striped>tbody>tr:nth-of-type(2n) {
+	
 }
 
-.table-striped > tbody > tr:nth-of-type(2n+1).clicked {
-  background-color: #e4e4e4;
+.table-striped>tbody>tr:nth-of-type(2n+1).clicked {
+	background-color: #e4e4e4;
 }
 
-.table-striped > tbody > tr:nth-of-type(2n).clicked{
-  background-color: #e4e4e4;
+.table-striped>tbody>tr:nth-of-type(2n).clicked {
+	background-color: #e4e4e4;
 }
 
-tbody tr:hover td{
-  background-color: #bababa;
-  /*color: white;*/
+tbody tr:hover td {
+	background-color: #bababa;
+	/*color: white;*/
 }
