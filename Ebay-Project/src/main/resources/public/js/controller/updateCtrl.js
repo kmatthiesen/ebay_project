@@ -1,10 +1,27 @@
-angular.module('ebay-store').controller('updateController', ['$scope', 'httpFactory', function($scope, httpFactory){
-    $scope.clicky = function(event, name, serial){
-        fabric.fabric_name = event.target.parentNode.id;
-        fabric.serial_num = serial;
-        fabric.fabric_name = name;
-        httpFactory.newFabric(fabric).then(function(){
+angular.module('ebay-store').controller('updateCtrl', ['$scope', 'httpFactory', '$stateParams', '$state', function($scope, httpFactory, $stateParams, $state){
+    httpFactory.getFabric($stateParams.id).then(function(response){
+      $scope.fabric = response.data;
+      if ($scope.fabric.size == 10){
+        $scope.fabricSize = $scope.sizes[0];
+      } else {
+        $scope.fabricSize = $scope.sizes[1];
+      }
+    });
 
-        });
+    $scope.updateFabric = function(){
+      $scope.fabric.size = $scope.fabricSize.value;
+      console.log($scope.fabric);
+      httpFactory.updateFabric($scope.fabric).then(function(){
+        $state.go('view');
+      });
     };
+
+    $scope.deleteFabric = function() {
+      httpFactory.deleteFabric($scope.fabric.id).then(function(){
+        $state.go('view');
+      });
+    };
+
+    $scope.sizes = [{value:10}, {value:12}];
+
 }]);

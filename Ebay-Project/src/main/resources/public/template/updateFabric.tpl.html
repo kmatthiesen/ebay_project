@@ -1,0 +1,30 @@
+<div class="container">
+  <form ng-submit="updateFabric()">
+    <div class="col-md-12 create-form">
+      <label for="serialNum">Serial Number:
+      <input class="form-control" ng-model="fabric.serialNum" type="text" placeholder="Serial Number" name="serialNum" required></label>
+      <label for="description">Description:
+      <input class="form-control" ng-model="fabric.description" type="text" placeholder="Description" name="description" required></label>
+      <label for="size">Size:
+      <select class="form-control" ng-model="fabricSize" name="size" ng-options="size.value for size in sizes">
+      </select></label>
+    </div>
+    <div class="col-md-12 create-form">
+      <label for="quantity">Quantity:
+      <input class="form-control" ng-model="fabric.quantity" type="number" placeholder="Quantity" name="quantity"></label>
+      <label for="photo">Photo:
+      <input class="form-control" ng-model="fabric.photo" type="text" placeholder="Photo Name (something.jpg)" name="photo"></label>
+    </div>
+    <div class="col-md-12 create-form">
+      <label for="comment">Comments:
+      <textarea class="form-control" ng-model="fabric.comment" type="text" placeholder="Comments" name="comment"></textarea></label>
+      <label for="primary">Primary:
+      <input type="checkbox" class="form-control" ng-model="fabric.primary" name="primary"></label>
+    </div>
+    <div class="col-md-12 create-form">
+      <button class="btn btn-default" type="submit">Update</button>
+      <button class="btn btn-default" type="button" ui-sref="view">Cancel</button>
+      <button class="btn btn-default" type="button" ng-click="deleteFabric()">Delete</button>
+    </div>
+  </form>
+</div>

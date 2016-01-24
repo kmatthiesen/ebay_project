@@ -1,19 +1,33 @@
 angular.module('ebay-store').factory('httpFactory',
-		[ '$http', '$q', function($http, $q) {
+		[ '$http', function($http) {
+
+			function getAllFabrics() {
+				return $http.get('/fabrics');
+			}
+
+			function newFabric(fabric) {
+				return $http.post('/fabrics/new', fabric);
+			}
+
+			function getFabric(id) {
+				return $http.get('/fabrics/'+id);
+			}
+
+			function updateFabric(fabric){
+				return $http.put('/fabrics/update', fabric);
+			}
+
+			function deleteFabric(id){
+				console.log('/fabrics/delete/' + id);
+				return $http.delete('/fabrics/delete/' + id);
+			}
 
 			return {
-				getAllFabrics : function() {
-					var deferred = $q.defer();
-					$http.get('/fabrics').then(function(response) {
-						deferred.resolve(response.data);
-					}, function(error) {
-						console.log(error);
-					});
-					return deferred.promise;
-				}, /* /getAllFabrics */
-				newFabric : function(fabric) {
-					$http.post('/fabrics/new');
-				} /* /newFabric */
+				getAllFabrics : getAllFabrics,
+				newFabric : newFabric,
+				getFabric : getFabric,
+				updateFabric : updateFabric,
+				deleteFabric : deleteFabric
 			};
 
 		} ]);

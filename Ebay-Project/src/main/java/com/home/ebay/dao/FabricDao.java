@@ -23,9 +23,25 @@ public class FabricDao {
 	
 	public void addFabric(Fabric newFabric){
 		em.persist(newFabric);
+		em.flush();
 	}
 	
 	public List<Fabric> getAllFabric(){
 		return em.createQuery("SELECT f FROM fabric f ORDER BY id", Fabric.class).getResultList();
+	}
+
+	public Fabric getFabric(Integer id) {
+		return em.createQuery("SELECT f FROM fabric f WHERE f.id = :id", Fabric.class).setParameter("id", id).getSingleResult();
+	}
+
+	public void updateFabric(Fabric fabric) {
+		// TODO Auto-generated method stub
+		System.out.println(em.merge(fabric).toString());
+		em.flush();
+	}
+
+	public void deleteFabric(Integer id) {
+		// TODO Auto-generated method stub
+		em.createQuery("DELETE fabric WHERE id = :id").setParameter("id", id).executeUpdate();
 	}
 }

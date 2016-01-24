@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,5 +32,20 @@ public class WebServices {
 	@RequestMapping(value = "/fabrics/new", method = RequestMethod.POST)
 	public void newFabric(@RequestBody Fabric fabric){
 		fabricDao.addFabric(fabric);
+	}
+	
+	@RequestMapping(value = "/fabrics/{id}", method = RequestMethod.GET)
+	public Fabric getFabric(@PathVariable Integer id){
+		return fabricDao.getFabric(id);
+	}
+	
+	@RequestMapping(value = "/fabrics/update", method =  RequestMethod.PUT)
+	public void updateFabric(@RequestBody Fabric fabric){
+		fabricDao.updateFabric(fabric);
+	}
+	
+	@RequestMapping(value = "/fabrics/delete/{id}", method = RequestMethod.DELETE)
+	public void deleteFabric(@PathVariable Integer id){
+		fabricDao.deleteFabric(id);
 	}
 }

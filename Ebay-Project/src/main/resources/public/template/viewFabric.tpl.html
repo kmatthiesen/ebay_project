@@ -1,0 +1,33 @@
+<div class="container">
+  <div id="accordion" class="col-md-7">
+    <table class="table table-bordered table-hover table-striped">
+      <thead id="table-header">
+        <td>Serial Number</td>
+        <td>Description</td>
+        <td>Quantity</td>
+      </thead>
+      <tbody>
+        <tr ng-repeat="fabric in fabrics" ng-click="setTab($index)"
+          ng-class='{clicked : isSet($index)}'>
+          <td>{{fabric.serialNum}}</td>
+          <td>{{fabric.description}}</td>
+          <td>{{fabric.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-5" id="extra-info">
+    <div ng-repeat="fabric in fabrics">
+      <div ng-class="{active : isSet($index)}" ng-show="isSet($index)">
+        <div>
+            <div>
+                {{fabric.size}}
+            </div>
+            <div>
+              <button type="button" class="btn btn-default" ui-sref='update({id:fabric.id})'>Update</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

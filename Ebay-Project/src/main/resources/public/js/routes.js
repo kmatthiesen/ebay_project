@@ -1,27 +1,25 @@
-'use strict';
-
-angular.module('omdb').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+angular.module('ebay-store').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/view');
 
-	$stateProvider.state('search', {
+	$stateProvider.state('update', {
 
-		url: '/search',
-		templateUrl: 'template/search.tpl.html',
-		controller: 'searchCtrl'
+		url: '/update/:id',
+		templateUrl: 'template/updateFabric.tpl.html',
+		controller: 'updateCtrl'
 
 	}).state('view', {
 
 		url: '/view',
-		templateUrl: 'template/viewMovies.tpl.html',
+		templateUrl: 'template/viewFabric.tpl.html',
 		controller: 'viewCtrl'
 
-	}).state('detail', {
+	}).state('create', {
 
-		url: '/detail',
-		templateUrl: 'template/movieDetail.tpl.html',
-		controller: 'detailCtrl'
-		
+		url: '/create',
+		templateUrl: 'template/createFabric.tpl.html',
+		controller: 'createCtrl'
+
 	});
 
 
