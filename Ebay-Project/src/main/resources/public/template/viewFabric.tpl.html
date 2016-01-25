@@ -20,11 +20,17 @@
     <div ng-repeat="fabric in fabrics">
       <div ng-class="{active : isSet($index)}" ng-show="isSet($index)">
         <div>
-            <div>
-                {{fabric.size}}
+            <div class="col-md-12">
+                {{fabric.photo}}
+            </div>
+            <div class="col-md-6">
+                Size: {{fabric.size}}"
+            </div>
+            <div class="col-md-6">
+                Primary: {{fabric.primaryFab}}
             </div>
             <div>
-              <button type="button" class="btn btn-default" ui-sref='update({id:fabric.id})'>Update</button>
+              <button type="button" class="btn btn-default" ui-sref='updateFabric({id:fabric.id})'>Update</button>
             </div>
         </div>
       </div>

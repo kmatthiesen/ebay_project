@@ -19,8 +19,8 @@ public class Fabric {
 	private Integer size;
 	private String comments;
 	private String photo;
-	@Column(name="primary")
-	private boolean primary;
+	@Column(name="primaryFab")
+	private boolean primaryFab;
 	
 	public String getSerialNum() {
 		return serialNum;
@@ -61,11 +61,18 @@ public class Fabric {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public boolean getPrimary() {
-		return primary;
+	/**
+	 * @return the primaryFabFab
+	 */
+	public boolean isprimaryFab() {
+		return primaryFab;
 	}
-	public void setPrimary(boolean primary) {
-		this.primary = primary;
+	/**
+	 * @param primaryFabFab the primaryFabFab to set
+	 */
+	public void setprimaryFab(boolean primaryFab) {
+		this.primaryFab = primaryFab;
 	}
+	
 	
 }

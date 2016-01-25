@@ -2,7 +2,7 @@ angular.module('ebay-store').controller('createCtrl', ['httpFactory', '$scope', 
   $scope.addFabric = function(){
     console.log($scope.fabric);
     httpFactory.newFabric($scope.fabric).then(function(){
-      $state.go('view');
+      $state.go('viewFabric');
     });
   };
 

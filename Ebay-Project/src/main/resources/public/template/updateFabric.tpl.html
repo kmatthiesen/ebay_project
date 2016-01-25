@@ -18,12 +18,12 @@
     <div class="col-md-12 create-form">
       <label for="comment">Comments:
       <textarea class="form-control" ng-model="fabric.comment" type="text" placeholder="Comments" name="comment"></textarea></label>
-      <label for="primary">Primary:
-      <input type="checkbox" class="form-control" ng-model="fabric.primary" name="primary"></label>
+      <label for="primaryFab">Primary:
+      <input type="checkbox" class="form-control" ng-model="fabric.primaryFab" name="primaryFab"></label>
     </div>
     <div class="col-md-12 create-form">
       <button class="btn btn-default" type="submit">Update</button>
-      <button class="btn btn-default" type="button" ui-sref="view">Cancel</button>
+      <button class="btn btn-default" type="button" ui-sref="viewFabric">Cancel</button>
       <button class="btn btn-default" type="button" ng-click="deleteFabric()">Delete</button>
     </div>
   </form>

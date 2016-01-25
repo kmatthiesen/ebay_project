@@ -12,13 +12,13 @@ angular.module('ebay-store').controller('updateCtrl', ['$scope', 'httpFactory', 
       $scope.fabric.size = $scope.fabricSize.value;
       console.log($scope.fabric);
       httpFactory.updateFabric($scope.fabric).then(function(){
-        $state.go('view');
+        $state.go('viewFabric');
       });
     };
 
     $scope.deleteFabric = function() {
       httpFactory.deleteFabric($scope.fabric.id).then(function(){
-        $state.go('view');
+        $state.go('viewFabric');
       });
     };
 

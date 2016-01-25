@@ -1,22 +1,22 @@
 angular.module('ebay-store').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/view');
+	$urlRouterProvider.otherwise('/view/fabric');
 
-	$stateProvider.state('update', {
+	$stateProvider.state('updateFabric', {
 
-		url: '/update/:id',
+		url: '/update/fabric/:id',
 		templateUrl: 'template/updateFabric.tpl.html',
 		controller: 'updateCtrl'
 
-	}).state('view', {
+	}).state('viewFabric', {
 
-		url: '/view',
+		url: '/view/fabric',
 		templateUrl: 'template/viewFabric.tpl.html',
 		controller: 'viewCtrl'
 
-	}).state('create', {
+	}).state('createFabric', {
 
-		url: '/create',
+		url: '/create/fabric',
 		templateUrl: 'template/createFabric.tpl.html',
 		controller: 'createCtrl'
 
