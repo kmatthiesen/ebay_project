@@ -7,30 +7,30 @@
         <td class="col-md-3">Quantity</td>
       </thead>
       <tbody>
-        <tr ng-repeat="fabric in fabrics" ng-click="setTab($index)"
+        <tr ng-repeat="cozy in cozys" ng-click="setTab($index)"
           ng-class='{clicked : isSet($index)}'>
-          <td>{{fabric.serialNum}}</td>
-          <td>{{fabric.description}}</td>
-          <td>{{fabric.quantity}}</td>
+          <td>{{cozy.serialNum}}</td>
+          <td>{{cozy.description}}</td>
+          <td>{{cozy.quantity}}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="col-md-5" id="extra-info">
-    <div ng-repeat="fabric in fabrics">
+    <div ng-repeat="cozy in cozys">
       <div ng-class="{active : isSet($index)}" ng-show="isSet($index)">
         <div>
             <div class="col-md-12">
-                <img src="{{fabric.photo}}">
+                <img src="{{cozy.photo}}">
             </div>
             <div class="col-md-6">
-                Size: {{fabric.size}}"
+                Size: {{cozy.size}}"
             </div>
             <div class="col-md-6">
-                {{fabric.primaryFab | primaryFilter}} Fabric
+                {{cozy.primaryFab | primaryFilter}} cozy
             </div>
             <div class="update-btns">
-              <button type="button" class="btn btn-default" ui-sref='updateFabric({id:fabric.id})'>Update</button>
+              <button type="button" class="btn btn-default" ui-sref='updatecozy({id:cozy.id})'>Update</button>
             </div>
         </div>
       </div>

@@ -18,8 +18,11 @@ angular.module('ebay-store').factory('httpFactory',
 			}
 
 			function deleteFabric(id){
-				console.log('/fabrics/delete/' + id);
 				return $http.delete('/fabrics/delete/' + id);
+			}
+
+			function getAllCozy() {
+				return $http.get('/cozy');
 			}
 
 			return {
@@ -27,7 +30,8 @@ angular.module('ebay-store').factory('httpFactory',
 				newFabric : newFabric,
 				getFabric : getFabric,
 				updateFabric : updateFabric,
-				deleteFabric : deleteFabric
+				deleteFabric : deleteFabric,
+				getAllCozy : getAllCozy
 			};
 
 		} ]);

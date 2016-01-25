@@ -1,8 +1,8 @@
-angular.module('ebay-store').controller('viewCtrl',
+angular.module('ebay-store').controller('viewCozyCtrl',
 		[ '$scope', 'httpFactory', function($scope, httpFactory) {
 
-			httpFactory.getAllFabrics().then(function(response) {
-				$scope.fabrics = response.data;
+			httpFactory.getAllCozy().then(function(response) {
+				$scope.cozys = response.data;
 			});
 
 			$scope.tab = -1;
