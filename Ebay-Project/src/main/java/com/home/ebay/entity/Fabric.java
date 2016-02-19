@@ -9,9 +9,7 @@ import javax.persistence.Id;
 @Entity(name = "fabric")
 public class Fabric {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer fabricId;
 	@Column(name = "serialnum")
 	private String serialNum;
 	private Integer quantity;
@@ -52,8 +50,17 @@ public class Fabric {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public Integer getId() {
-		return id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getFabricId() {
+		return fabricId;
+	}
+	/**
+	 * @param fabricId the fabricId to set
+	 */
+	public void setFabricId(Integer fabricId) {
+		this.fabricId = fabricId;
 	}
 	public String getPhoto() {
 		return photo;

@@ -3,6 +3,7 @@ angular.module('ebay-store').controller('viewCozyCtrl',
 
 			httpFactory.getAllCozy().then(function(response) {
 				$scope.cozys = response.data;
+				console.log(response.data);
 			});
 
 			$scope.tab = -1;

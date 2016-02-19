@@ -1,5 +1,5 @@
 <div class="container">
-  <form ng-submit="addcozy()">
+  <form ng-submit="addCozy()">
     <div class="col-md-12 create-form">
       <label for="serialNum">Serial Number:
       <input class="form-control" ng-model="cozy.serialNum" type="text" placeholder="Serial Number" name="serialNum" required></label>
@@ -13,10 +13,10 @@
         </option>
       </select></label>
       <label for="primaryFab">Primary Fabric:
-      <select class="form-control" ng-model="cozy.primaryFab" name="primaryFab" ng-options="fabric.serialNum for fabric in fabrics | filter:{ primaryFab : true} | filter:{ size : cozy.size}">
+      <select class="form-control" ng-model="cozy.primaryFab" name="primaryFab" ng-options="fabric as fabric.serialNum for fabric in fabrics | filter:{ primaryFab : true} | filter:{ size : cozy.size}">
       </select></label>
       <label for="secondaryFab">Secondary Fabric:
-      <select class="form-control" ng-model="cozy.secondaryFab" name="secondaryFab" ng-options="fabric.serialNum for fabric in fabrics | filter:{ primaryFab : false} | filter:{ size : cozy.size}">
+      <select class="form-control" ng-model="cozy.secondaryFab" name="secondaryFab" ng-options="fabric as fabric.serialNum for fabric in fabrics | filter:{ primaryFab : false} | filter:{ size : cozy.size}">
       </select></label>
     </div>
     <div class="col-md-12 create-form">

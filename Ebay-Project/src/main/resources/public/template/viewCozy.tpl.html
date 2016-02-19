@@ -10,7 +10,7 @@
         <tr ng-repeat="cozy in cozys" ng-click="setTab($index)"
           ng-class='{clicked : isSet($index)}'>
           <td>{{cozy.serialNum}}</td>
-          <td>{{cozy.description}}</td>
+          <td>{{cozy.primaryFab.description + " " + cozy.secondaryFab.description}}</td>
           <td>{{cozy.quantity}}</td>
         </tr>
       </tbody>

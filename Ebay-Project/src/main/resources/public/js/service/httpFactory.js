@@ -25,13 +25,18 @@ angular.module('ebay-store').factory('httpFactory',
 				return $http.get('/cozy');
 			}
 
+			function newCozy(cozy) {
+				return $http.post("/cozy/new", cozy);
+			}
+
 			return {
 				getAllFabrics : getAllFabrics,
 				newFabric : newFabric,
 				getFabric : getFabric,
 				updateFabric : updateFabric,
 				deleteFabric : deleteFabric,
-				getAllCozy : getAllCozy
+				getAllCozy : getAllCozy,
+				newCozy : newCozy
 			};
 
 		} ]);

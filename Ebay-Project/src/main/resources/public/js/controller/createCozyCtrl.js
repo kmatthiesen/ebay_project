@@ -3,4 +3,9 @@ angular.module('ebay-store').controller('createCozyCtrl', ['httpFactory', '$scop
         $scope.fabrics = response.data;
     });
 
+    $scope.addCozy = function(){
+        console.log($scope.cozy);
+        httpFactory.newCozy($scope.cozy);
+    };
+
 }]);

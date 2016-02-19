@@ -22,13 +22,12 @@ public class CozyDao {
 	}
 	
 	public List<Cozy> getAll(){
-		return em.createQuery("SELECT c.id, c.serialNum , f.serialNum ," 
-				+ " f2.serialNum , CONCAT(f.description , ' ', f2.description)"
-				+ " FROM cozy c, fabric f, fabric f2 WHERE c.primaryFab = f.id AND c.secondaryFab = f2.id "
-				, Cozy.class).getResultList();
+		return em.createQuery("SELECT c FROM cozy c", Cozy.class).getResultList();
 	}
 	
-	public List<Cozy> getAllTest() {
-		return em.createQuery("SELECT c.serialNum FROM cozy c", Cozy.class).getResultList();
+	public void add(Cozy cozy){
+		em.persist(cozy);
+		em.flush();
 	}
+	
 }

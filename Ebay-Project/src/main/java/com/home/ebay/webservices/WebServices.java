@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.home.ebay.dao.CozyDao;
-import com.home.ebay.dao.CozyDisplayDao;
 import com.home.ebay.dao.FabricDao;
 import com.home.ebay.entity.Cozy;
-import com.home.ebay.entity.CozyDisplay;
 import com.home.ebay.entity.Fabric;
 
 
@@ -29,10 +27,13 @@ public class WebServices {
 	}
 	
 	@Autowired
-	private CozyDisplayDao cozyDisplayDao;
-	
-	public void setCozyDao(CozyDisplayDao cozyDao) {
-		this.cozyDisplayDao = cozyDao;
+	private CozyDao cozyDao;
+
+	/**
+	 * @param cozyDao the cozyDao to set
+	 */
+	public void setCozyDao(CozyDao cozyDao) {
+		this.cozyDao = cozyDao;
 	}
 
 	@RequestMapping(value = "/fabrics", method = RequestMethod.GET)
@@ -61,7 +62,12 @@ public class WebServices {
 	}
 	
 	@RequestMapping(value = "/cozy", method = RequestMethod.GET)
-	public List<CozyDisplay> getCozy(){
-		return cozyDisplayDao.getAll();
+	public List<Cozy> getCozy(){
+		return cozyDao.getAll();
+	}
+	
+	@RequestMapping(value = "/cozy/new", method = RequestMethod.POST)
+	public void newCozy(@RequestBody Cozy cozy) {
+		cozyDao.add(cozy);
 	}
 }

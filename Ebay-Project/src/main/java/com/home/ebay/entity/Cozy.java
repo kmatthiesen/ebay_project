@@ -5,45 +5,51 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "cozy")
-@Table(name = "cozy")
 public class Cozy {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	
+	private Integer cozyId;
 
-	private Integer primaryFab;
-	private Integer secondaryFab;
+	@Column(nullable=false)
+	private Fabric primaryFab;
+	@Column(nullable=false)
+	private Fabric secondaryFab;
 	private String description;
 	private Integer quantity;
 	@Column(name = "serialnum")
 	private String serialNum;
 	
+	
 	/**
 	 * @return the primaryFab
 	 */
-	public Integer getPrimaryFab() {
+	@ManyToOne
+	@JoinColumn(name="primaryFab")
+	public Fabric getPrimaryFab() {
 		return primaryFab;
 	}
 	/**
 	 * @param primaryFab the primaryFab to set
 	 */
-	public void setPrimaryFab(Integer primaryFab) {
+	public void setPrimaryFab(Fabric primaryFab) {
 		this.primaryFab = primaryFab;
 	}
 	/**
 	 * @return the secondaryFab
 	 */
-	public Integer getSecondaryFab() {
+	@ManyToOne
+	@JoinColumn(name="secondaryFab")
+	public Fabric getSecondaryFab() {
 		return secondaryFab;
 	}
 	/**
 	 * @param secondaryFab the secondaryFab to set
 	 */
-	public void setSecondaryFab(Integer secondaryFab) {
+	public void setSecondaryFab(Fabric secondaryFab) {
 		this.secondaryFab = secondaryFab;
 	}
 	/**
@@ -73,8 +79,16 @@ public class Cozy {
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
-		return id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getCozyId() {
+		return cozyId;
+	}
+	/**
+	 * @param cozyId the cozyId to set
+	 */
+	public void setCozyId(Integer cozyId) {
+		this.cozyId = cozyId;
 	}
 	/**
 	 * @return the serialNum
