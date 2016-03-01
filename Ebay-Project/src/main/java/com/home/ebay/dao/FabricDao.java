@@ -31,7 +31,7 @@ public class FabricDao {
 	}
 
 	public Fabric getFabric(Integer id) {
-		return em.createQuery("SELECT f FROM fabric f WHERE f.id = :id", Fabric.class).setParameter("id", id).getSingleResult();
+		return em.createQuery("SELECT f FROM fabric f WHERE f.fabricId = :id", Fabric.class).setParameter("id", id).getSingleResult();
 	}
 
 	public void updateFabric(Fabric fabric) {

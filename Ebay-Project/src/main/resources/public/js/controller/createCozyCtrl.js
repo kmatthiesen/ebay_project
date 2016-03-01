@@ -1,11 +1,10 @@
-angular.module('ebay-store').controller('createCozyCtrl', ['httpFactory', '$scope', '$state', function(httpFactory, $scope, $state){
-    httpFactory.getAllFabrics().then(function(response) {
-        $scope.fabrics = response.data;
-    });
+angular.module('ebay-store').controller('createCozyCtrl', ['$scope', '$state', 'getFabric', 'cozyService', function($scope, $state, getFabric, cozyService){
+
+    $scope.fabrics = getFabric;
 
     $scope.addCozy = function(){
         console.log($scope.cozy);
-        httpFactory.newCozy($scope.cozy);
+        cozyService.newCozy($scope.cozy);
     };
 
 }]);

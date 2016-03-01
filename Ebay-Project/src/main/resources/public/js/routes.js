@@ -2,17 +2,38 @@ angular.module('ebay-store').config(['$stateProvider', '$urlRouterProvider', fun
 
 	$urlRouterProvider.otherwise('/view/cozy');
 
-	$stateProvider.state('updateFabric', {
+	$stateProvider
+
+	.state('updateFabric', {
 
 		url: '/update/fabric/:id',
 		templateUrl: 'template/updateFabric.tpl.html',
-		controller: 'updateCtrl'
+		controller: 'updateCtrl',
+		resolve : {
+
+			getFabric: ['$stateParams', 'fabricService', function($stateParams, fabricService){
+				console.log($stateParams.id);
+				return fabricService.getFabric($stateParams.id).then(function(response) {
+					return response.data;
+				});
+			}]
+
+		}
 
 	}).state('viewFabric', {
 
 		url: '/view/fabric',
 		templateUrl: 'template/viewFabric.tpl.html',
-		controller: 'viewCtrl'
+		controller: 'viewCtrl',
+		resolve : {
+
+			getFabric: ['fabricService', function(fabricService){
+				return fabricService.getAllFabrics().then(function(response) {
+					return response.data;
+				});
+			}]
+
+		}
 
 	}).state('createFabric', {
 
@@ -24,13 +45,31 @@ angular.module('ebay-store').config(['$stateProvider', '$urlRouterProvider', fun
 
 		url: '/view/cozy',
 		templateUrl: 'template/viewCozy.tpl.html',
-		controller: 'viewCozyCtrl'
+		controller: 'viewCozyCtrl',
+		resolve : {
+
+			getCozy: ['cozyService', function(cozyService){
+				return cozyService.getAllCozy().then(function(response) {
+					return response.data;
+				});
+			}]
+
+		}
 
 	}).state('createCozy', {
 
 		url: '/create/cozy',
 		templateUrl: 'template/createCozy.tpl.html',
-		controller: 'createCozyCtrl'
+		controller: 'createCozyCtrl',
+		resolve : {
+
+			getFabric: ['fabricService', function(fabricService){
+				return fabricService.getAllFabrics().then(function(response) {
+					return response.data;
+				});
+			}]
+
+		}
 
 	});
 

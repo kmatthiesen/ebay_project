@@ -1,10 +1,8 @@
 angular.module('ebay-store').controller('viewCozyCtrl',
-		[ '$scope', 'httpFactory', function($scope, httpFactory) {
+		[ '$scope', 'getCozy', function($scope, getCozy) {
 
-			httpFactory.getAllCozy().then(function(response) {
-				$scope.cozys = response.data;
-				console.log(response.data);
-			});
+
+			$scope.cozys = getCozy;
 
 			$scope.tab = -1;
 

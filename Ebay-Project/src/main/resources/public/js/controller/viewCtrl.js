@@ -1,9 +1,7 @@
 angular.module('ebay-store').controller('viewCtrl',
-		[ '$scope', 'httpFactory', function($scope, httpFactory) {
+		[ '$scope', 'getFabric', function($scope, getFabric) {
 
-			httpFactory.getAllFabrics().then(function(response) {
-				$scope.fabrics = response.data;
-			});
+			$scope.fabrics = getFabric;
 
 			$scope.tab = -1;
 
